@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ main()
+comment0.text=\r\n\ Main\ utilis\u00E9\ pour\ des\ tests\r\n
+comment1.params=matrice
+comment1.target=float[][]\ transpose(float[][])
+comment1.text=\r\n\ Method\ transpose\r\n\r\n\ @param\ matrice\ A\ parameter\r\n\ @return\ The\ return\ value\r\n
+comment2.params=matrice_A\ matrice_B
+comment2.target=float[][]\ multiply(float[][],\ float[][])
+comment2.text=\r\n\ Method\ multiply\r\n\r\n\ @param\ matrice_A\ A\ parameter\r\n\ @param\ matrice_B\ A\ parameter\r\n\ @return\ The\ return\ value\r\n
+comment3.params=matrice
+comment3.target=void\ print_a_matrix(float[][])
+comment3.text=\r\n\ Method\ print_a_matrix\r\n\r\n\ @param\ matrice\ A\ parameter\r\n
+comment4.params=vector
+comment4.target=void\ print_a_vector(float[])
+comment4.text=\r\n\ Method\ print_a_matrix\r\n\r\n\ @param\ matrice\ A\ parameter\r\n
+comment5.params=matrice
+comment5.target=float[]\ degre(float[][])
+comment5.text=\r\n\ Method\ degre\r\n\r\n\ @param\ matrice\ A\ parameter\r\n\ @return\ The\ return\ value\r\n
+numComments=6
