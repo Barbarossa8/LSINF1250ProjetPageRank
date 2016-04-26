@@ -1,4 +1,4 @@
-package PageRankCode;
+ 
 
 public class score {
 	
