@@ -10,6 +10,7 @@ package.numTargets=2
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
+<<<<<<< HEAD
 target1.editor.height=876
 target1.editor.width=768
 target1.editor.x=832
@@ -17,10 +18,20 @@ target1.editor.y=24
 target1.height=50
 target1.name=score
 target1.naviview.expanded=true
+=======
+target1.editor.height=700
+target1.editor.width=900
+target1.editor.x=70
+target1.editor.y=50
+target1.height=50
+target1.name=score
+target1.naviview.expanded=false
+>>>>>>> c888fdaeac4c20a70d3bc52198d01892948ffcdd
 target1.showInterface=false
 target1.type=ClassTarget
 target1.typeParameters=
 target1.width=80
+<<<<<<< HEAD
 target1.x=460
 target1.y=50
 target2.editor.height=848
@@ -30,9 +41,25 @@ target2.editor.y=52
 target2.height=50
 target2.name=PageRank
 target2.naviview.expanded=true
+=======
+target1.x=160
+target1.y=10
+target2.editor.height=744
+target2.editor.width=1382
+target2.editor.x=-8
+target2.editor.y=-8
+target2.height=50
+target2.name=PageRank
+target2.naviview.expanded=false
+>>>>>>> c888fdaeac4c20a70d3bc52198d01892948ffcdd
 target2.showInterface=false
 target2.type=ClassTarget
 target2.typeParameters=
 target2.width=80
+<<<<<<< HEAD
 target2.x=290
 target2.y=50
+=======
+target2.x=70
+target2.y=10
+>>>>>>> c888fdaeac4c20a70d3bc52198d01892948ffcdd
