@@ -29,7 +29,7 @@
 	\ \\[8cm]
 	\textbf{Groupe 8} \\
 	Denauw Antoine\\
-	Decarvalho Borges Antonio
+	De Carvalho Borges Antonio
 }
 
 
@@ -37,15 +37,26 @@
 \newpage
 
 \section{Procédure Java}
-
+??
 \section{Algorithme utilisé}
+La méthode que nous avons choisi est l'algorithme PageRank utilisant la PowerMethod comme présenté au cours (cf. Chapitre 10 slide ...) :
+\\ Inclure screenshot de l'algo utilisé
+\\Explication de l'algorithme
 
 \section{Librairie de calcul matriciel}
+Même que vivement conseillé, nous avons pris la décision de ne pas utiliser de librairie spécifique aux calculs matriciel tel que $JAMA$, mais d'implémenter les différentes fonctions par nous même. Ce choix s'est fait dans une optique de ré-adaptation au langage $JAVA$ et de ses règles basiques. %A changer si on décide d'utiliser une librairie JAVA
+\\ Pour arriver à reproduire l'algorithme PageRank nous avons du implémenter les fonctions suivantes:
+\begin{itemize}
+    \item matrix_x_vector : Sers à calculer le vecteur résultant du produit entre une matrice NxN et un vecteur de type Nx1.
+    \item degree : Sers à calculer et stocker le degré dans un vecteur de chaque ligne d'une matrice NxN.
+    \item multiply (attention à la signature) : Peut servir soit à multiplier un vecteur avec une matrice et un facteur alpha, soit multiplier un vecteur avec un facteur ou bien multiplier deux matrices.
+    \item ...
+\end{itemize}
 
 \section{Méthode pour déterminer les scores}
+??
 
 \section{Annexe}
-
 \subsection{Scores PageRank}
 
 \subsection{Code complet}
