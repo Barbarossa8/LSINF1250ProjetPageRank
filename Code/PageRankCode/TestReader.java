@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author decarvalhobo
  * @version April 2016
  */
-public class TestReader
+public class TestReader extends PageRank
 {
     public static void main(String [] args)
     {
@@ -62,7 +62,7 @@ public class TestReader
                 matrice[runner_1][runner_2] = Integer.parseInt(temporaire[runner_1][runner_2]); //Conversion et stockage
             }
         }
-        print_a_matrix(matrice);
+        print_a_matrix(matrice, args[0]);
     }
 
 
@@ -72,15 +72,16 @@ public class TestReader
      *
      * @param matrice La matrice à imprimer
      */
-    public static void print_a_matrix(int[][] matrice)
+    public static void print_a_matrix(int[][] matrice, String nom_fichier)
     {
+        System.out.println("Le fichier " + nom_fichier + " contient la matrice suivante : \n");
         for(int runner = 0 ; runner < matrice.length ; runner++) //Parcours
         {
             for(int runner2 = 0 ; runner2 < matrice.length ; runner2++) //Parcours
             {
                 System.out.print(" " + matrice[runner][runner2]);
             }
-            System.out.println("");
+            System.out.println("\t");
         }
         System.out.println("\n");
     }

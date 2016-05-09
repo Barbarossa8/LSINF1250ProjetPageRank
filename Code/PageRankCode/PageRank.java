@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 /**
  * Page Rank
  * 
@@ -6,14 +9,14 @@
  */
 public class PageRank
 {
-    
+
     /**
      * Alors les fonctions que l'on doit utiliser pour l'algorithme PageRank de la slide 135 sont implémentée
      * Il reste plus qu'à faire:
      *                              - la fonction principale càd retranscrire l'algo en code
      *                              - ecrire la main qui lira des fichiers et appellera la fonction de calcul                    
      */
-    
+
     /**
      * Main utilisé pour des tests
      */
@@ -27,6 +30,15 @@ public class PageRank
         double [] second_vector = multiply(create_vector(matrice.length,1),facteur);
         print_a_vector( sum( first_vector , second_vector ) );
         System.out.println(sum(sum( first_vector , second_vector )));
+    }
+
+    public static void initialisation()
+    {
+        Scanner scan = new Scanner( System.in );
+        System.out.print("Entrez le nom du fichier contenant la matrice: ");
+        String fichier = scan.nextLine();
+        
+        scan.close();
     }
 
     //METHODES AVANCEE SUR MATRICES
