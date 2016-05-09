@@ -13,8 +13,8 @@ public class PageRank
     /**
      * Alors les fonctions que l'on doit utiliser pour l'algorithme PageRank de la slide 135 sont implémentée
      * Il reste plus qu'à faire:
-     *                              - la fonction principale càd retranscrire l'algo en code
-     *                              - ecrire la main qui lira des fichiers et appellera la fonction de calcul                    
+     *                              - la fonction principale càd retranscrire l'algo en code (en cours)
+     *                              - ecrire la main qui lira des fichiers et appellera la fonction de calcul  V                   
      */
 
     /**
@@ -22,23 +22,41 @@ public class PageRank
      */
     public static void main()
     {
-        double[][] matrice = { {0,1,0},{1,0,1},{1,1,0}};
-        double[] vector = {1,0,0};
-        double alpha = 0.9;
-        double [] first_vector = multiply(vector,transition_matrix(matrice),alpha);
-        double facteur = (1 - alpha)/matrice.length ;
-        double [] second_vector = multiply(create_vector(matrice.length,1),facteur);
-        print_a_vector( sum( first_vector , second_vector ) );
-        System.out.println(sum(sum( first_vector , second_vector )));
+        /* Initialisation de toutes les données nécéssaire*/
+        
+        double[][] matrice = initialisation();  //Récupère la matrice
+        double alpha = 0.85;    //coefficient de téléportation --> STDIN
+        double [] vector_xT = create_vector(matrice.length,1);  //vecteur xT
+        double [][] matrice_proba_t = transition_matrix(matrice);   //matrice de probabilité de transition
+        
+        double nombre_page = matrice.length;    //nombre de page de la matrice
+        double facteur = (1 - alpha)/nombre_page;   
+        double [] vector_eT = create_vector(matrice.length,0);  //vecteur eT
+        double [] vector_vT ;
+        
+        /* Implémentation de la formule */
+        
+        double [] terme_1;  //contenir le 1er terme
+        double [] terme_2;  //contenir le 2eme terme
+        double [] vector_PR;    //contenir le vecteur Page Rank
+        
+        while(true) //ecrire fonction qui compare 2 vecteur (-) et regarder si 10^-8 = false else true
+        {
+            vector_PR = vector_xT;
+            terme_1 = multiply(vector_xT , matrice_proba_t , alpha);
+            terme_2 = multiply(vector_eT , facteur);
+            vector_xT = sum(terme_1 , terme_2);
+        }
+        
     }
 
-    public static void initialisation()
+    public static double[][] initialisation()
     {
         Scanner scan = new Scanner( System.in );
         System.out.print("Entrez le nom du fichier contenant la matrice: ");
         String fichier = scan.nextLine();
-        
         scan.close();
+        return TestReader.read_file(fichier);
     }
 
     //METHODES AVANCEE SUR MATRICES
@@ -53,21 +71,6 @@ public class PageRank
     public static double [][] transition_matrix(double [][] matrice)
     {
         return divise(matrice,degre(matrice));
-    }
-
-    /**
-     * Méthode qui calcule le score PageRank à partir de la matrice donnée en argument.
-     * 
-     * 
-     * @pre: Une matrice d’adjacence A d’un graphe dirigé, pondéré 
-     *       et régulier G ainsi qu’un paramètre de téléportation 
-     *       α entre 0 et 1 (inutile de le vérifier) et un vecteur de personnalisation q.
-     * @post: Un vecteur x contenant les scores d’importance des noeuds ordonnés 
-     *        dans le même ordre que la matrice d’adjacence.
-     */
-    public double[] calcul (double matrice[][]){
-        return null;
-
     }
 
     //METHODES DE BASES POUR LES MATRICES
@@ -138,12 +141,15 @@ public class PageRank
     }
 
     /**
-     * METHOD MULTIPLY
+     * METHOD MULTIPLY 
      *
      * --> Multiplie une matrice avec un vecteur et un coefficient alpha
-     *
-     * @param matrice_A La matrice A 
-     * @param matrice_B La matrice B
+     *   -> Pour le premier terme de la formule
+     *  
+     * @param vector Le vecteur xT
+     * @param matrice La matrice de probabilité de transition
+     * @param alpha Le coefficient alpha
+     * 
      * @return Le produit des deux matrices NxN sous forme de matrice NxN
      */
     public static double[] multiply(double[] vector, double[][] matrice, double alpha) 
@@ -204,12 +210,23 @@ public class PageRank
     }
 
     //METHODES DIVERSE
-    public static double [] create_vector(int longueur , int valeur_initialisation)
+    public static double [] create_vector(int longueur, int mode)
     {        
         double [] vector = new double [longueur];
         for( int runner=0 ; runner < longueur ; runner++ )
         {
-            vector [runner]=valeur_initialisation;
+            if( mode == 1 ) //mode xT (1, 0, 0, ...)
+            {
+                if(runner == 0)
+                {
+                    vector [runner]=1;
+                }
+                vector [runner]=0;
+            }
+            else    //mode eT ( 1, 1, 1 ...)
+            {
+                vector [runner] = 1;
+            }
         }
         return vector;
     }

@@ -10,16 +10,16 @@ import java.util.ArrayList;
  * @author decarvalhobo
  * @version April 2016
  */
-public class TestReader extends PageRank
+public class TestReader
 {
-    public static void main(String [] args)
+    public static double [][] read_file(String file)
     {
         ArrayList <String[]> list = new ArrayList<String[]>(); //Liste dynamique qui contiendra les elements de la matrices
         BufferedReader fichier = null;
 
         try
         {
-            fichier = new BufferedReader(new FileReader(args[0]));   //Ouverture du flux de fichier
+            fichier = new BufferedReader(new FileReader(file));   //Ouverture du flux de fichier
             String ligne = fichier.readLine();  //Lecture de la premiere ligne du fichier
             while( ligne != null )
             {
@@ -29,11 +29,13 @@ public class TestReader extends PageRank
         }
         catch (FileNotFoundException exception) //Gestion de l'erreur du au fait de ne pas trouver le fichier 
         {
-            System.err.println("Le fichier " + args[0] +" n'a pas été trouvé :" + exception.getMessage());
+            System.err.println("Le fichier " + file +" n'a pas été trouvé :" + exception.getMessage());
+            PageRank.initialisation();  //retour à la demande du nom de fichier
         }
         catch (IOException exception)   //Gestion de l'erreur du à la lecture du fichier
         {
             System.err.println ("Erreur lors de la lecture : " + exception.getMessage());
+            PageRank.initialisation(); //retour à la demande du nom de fichier
         }
         finally //Exécuté dans tout les cas
         {
@@ -54,15 +56,16 @@ public class TestReader extends PageRank
         }
         
         /* Construction de la matrice */
-        int [][] matrice = new int[temporaire.length][temporaire.length];    //Création de la matrice
+        double [][] matrice = new double[temporaire.length][temporaire.length];    //Création de la matrice
         for (int runner_1 = 0 ; runner_1 < temporaire.length ; runner_1++)  //Parcours du tableau 
         {
             for (int runner_2 = 0 ; runner_2 < temporaire.length ; runner_2++) 
             {
-                matrice[runner_1][runner_2] = Integer.parseInt(temporaire[runner_1][runner_2]); //Conversion et stockage
+                matrice[runner_1][runner_2] = Double.parseDouble(temporaire[runner_1][runner_2]); //Conversion et stockage
             }
         }
-        print_a_matrix(matrice, args[0]);
+        //print_a_matrix(matrice, file);
+        return matrice;
     }
 
 
@@ -72,7 +75,7 @@ public class TestReader extends PageRank
      *
      * @param matrice La matrice à imprimer
      */
-    public static void print_a_matrix(int[][] matrice, String nom_fichier)
+    public static void print_a_matrix(double[][] matrice, String nom_fichier)
     {
         System.out.println("Le fichier " + nom_fichier + " contient la matrice suivante : \n");
         for(int runner = 0 ; runner < matrice.length ; runner++) //Parcours
