@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2015.11.26)  9 MAY 2016 18:07
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2015.11.26)  9 MAY 2016 21:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -494,7 +494,7 @@ File: PowerMethod.png Graphic file (type QTm)
 Here is how much of TeX's memory you used:
  14333 strings out of 493706
  295464 string characters out of 6147747
- 324399 words of memory out of 5000000
+ 325399 words of memory out of 5000000
  17623 multiletter control sequences out of 15000+600000
  4499 words of font info for 27 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

@@ -38,9 +38,9 @@ public class PageRank
         
         double [] terme_1;  //contenir le 1er terme
         double [] terme_2;  //contenir le 2eme terme
-        double [] vector_PR;    //contenir le vecteur Page Rank
+        double [] vector_PR = create_vector(matrice.length,0);    //contenir le vecteur Page Rank
         
-        while(true) //ecrire fonction qui compare 2 vecteur (-) et regarder si 10^-8 = false else true
+        while( condition(vector_xT, vector_PR) ) //ecrire fonction qui compare 2 vecteur (-) et regarder si 10^-8 = false else true
         {
             vector_PR = vector_xT;
             terme_1 = multiply(vector_xT , matrice_proba_t , alpha);
@@ -48,6 +48,30 @@ public class PageRank
             vector_xT = sum(terme_1 , terme_2);
         }
         
+    }
+    
+    public static boolean condition(double [] first, double [] second)
+    {
+        double [] temp = minus(first, second);
+        return ( temp[0] < 0.00000001 );
+    }
+    
+    /**
+     * METHODE MINUS
+     * 
+     * --> Calcule la différences de deux vecteurs
+     *
+     * @param  vector_1     Un vecteur de taille N
+     * @param  vector_2     Un vecteur de taille N
+     * @return     La différence entre les deux vecteurs
+     */
+    public static double [] minus(double [] vector_1, double [] vector_2)
+    {
+        for( int runner=0 ; runner< vector_1.length;runner++)
+        {
+            vector_1[runner] -= vector_2[runner];
+        }
+        return vector_1;
     }
 
     public static double[][] initialisation()
