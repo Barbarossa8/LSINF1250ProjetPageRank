@@ -1,11 +1,11 @@
 #BlueJ class context
 comment0.params=args
 comment0.target=void\ main(java.lang.String[])
-comment0.text=\n\ M\u00E9thode\ qui\ charge\ le\ fichier\ de\ donn\u00E9es\ (la\ matrice\ d\u2019adjacence)\ \n\ ,\ qui\ appelle\ la\ proc\u00E9dure\ calculant\ les\ scores\ PageRank\n\ et\ les\ imprime\ \u00E0\ l\u2019\u00E9cran.\n
+comment0.text=\r\n\ M\u00E9thode\ qui\ charge\ le\ fichier\ de\ donn\u00E9es\ (la\ matrice\ d\u2019adjacence)\ \r\n\ ,\ qui\ appelle\ la\ proc\u00E9dure\ calculant\ les\ scores\ PageRank\r\n\ et\ les\ imprime\ \u00E0\ l\u2019\u00E9cran.\r\n
 comment1.params=matrice
 comment1.target=void\ print_a_matrix(int[][])
-comment1.text=\ METHOD\ PRINT_A_MATRIX\n\ \n\ -->\ Imprime\ la\ matrice\n\n\ @param\ matrice\ La\ matrice\ \u00E0\ imprimer\n
+comment1.text=\ METHOD\ PRINT_A_MATRIX\r\n\ \r\n\ -->\ Imprime\ la\ matrice\r\n\r\n\ @param\ matrice\ La\ matrice\ \u00E0\ imprimer\r\n
 comment2.params=matrice
 comment2.target=int[]\ calcul(int[][])
-comment2.text=\n\ M\u00E9thode\ qui\ calcule\ le\ score\ PageRank\ \u00E0\ partir\ de\ la\ matrice\ donn\u00E9e\ en\ argument.\n\ \n\ \n\ @pre\:\ Une\ matrice\ d\u2019adjacence\ A\ d\u2019un\ graphe\ dirig\u00E9,\ pond\u00E9r\u00E9\ \n\ \t\t\ et\ r\u00E9gulier\ G\ ainsi\ qu\u2019un\ param\u00E8tre\ de\ t\u00E9l\u00E9portation\ \n\ \t\t\ \u03B1\ entre\ 0\ et\ 1\ (inutile\ de\ le\ v\u00E9rifier)\ et\ un\ vecteur\ de\ personnalisation\ q.\n\ @post\:\ Un\ vecteur\ x\ contenant\ les\ scores\ d\u2019importance\ des\ noeuds\ ordonn\u00E9s\ \n\ \t\t\ \ dans\ le\ m\u00EAme\ ordre\ que\ la\ matrice\ d\u2019adjacence.\n
+comment2.text=\r\n\ M\u00E9thode\ qui\ calcule\ le\ score\ PageRank\ \u00E0\ partir\ de\ la\ matrice\ donn\u00E9e\ en\ argument.\r\n\ \r\n\ \r\n\ @pre\:\ Une\ matrice\ d\u2019adjacence\ A\ d\u2019un\ graphe\ dirig\u00E9,\ pond\u00E9r\u00E9\ \r\n\ \t\t\ et\ r\u00E9gulier\ G\ ainsi\ qu\u2019un\ param\u00E8tre\ de\ t\u00E9l\u00E9portation\ \r\n\ \t\t\ \u03B1\ entre\ 0\ et\ 1\ (inutile\ de\ le\ v\u00E9rifier)\ et\ un\ vecteur\ de\ personnalisation\ q.\r\n\ @post\:\ Un\ vecteur\ x\ contenant\ les\ scores\ d\u2019importance\ des\ noeuds\ ordonn\u00E9s\ \r\n\ \t\t\ \ dans\ le\ m\u00EAme\ ordre\ que\ la\ matrice\ d\u2019adjacence.\r\n
 numComments=3
