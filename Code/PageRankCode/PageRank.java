@@ -33,8 +33,8 @@ public class PageRank
         double [][] matrice_proba_t = transition_matrix(matrice);   //matrice de probabilité de transition
 
         double nombre_page = matrice.length;    //nombre de page de la matrice
-        double facteur = (1 - alpha)/nombre_page;   
-        double [] vector_eT = create_vector(matrice.length,0);  //vecteur eT
+        double facteur = (1 - alpha);   
+        double [] vector_qT = {0.3,0,0.2,0,0.2,0,0.2,0.1,0,0,0};//create_vector(matrice.length,0);  //vecteur qT
         //double [] vector_vT = convert(valeur_initial[2]);
 
         /* Implémentation de la formule */
@@ -42,36 +42,47 @@ public class PageRank
         double [] terme_1;  //contenir le 1er terme
         double [] terme_2;  //contenir le 2eme terme
         double [] vector_PR = create_vector(matrice.length,0);    //contenir le vecteur Page Rank
+        int count = 0;
 
-        while( condition(vector_xT, vector_PR) ) 
+        while( condition(vector_xT, vector_PR) ) //Tant que la norme 2 est supérieure à 10^-8
         {
             vector_PR = vector_xT;  
             terme_1 = multiply(vector_xT , matrice_proba_t , alpha);    //Premier terme de l'algorithme 
-            terme_2 = multiply(vector_eT , facteur);    //Second terme de l'algorithme
+            terme_2 = multiply(vector_qT , facteur);    //Second terme de l'algorithme
             vector_xT = sum(terme_1 , terme_2); //Résultat
-            
+            vector_xT = norme(vector_xT, sum(vector_xT));
+            count++;
         }
         vector_PR = vector_xT;
         print_a_vector(vector_PR);
         System.out.println(sum(vector_PR));
+        System.out.println(count);
     }
 
     public static double [] convert(String to_convert)
     {
         return null;
     }
+    
+    public static double [] norme (double [] vect, double divise)
+    {
+        for (int i = 0; i < vect.length ; i++)
+        {
+            vect[i] = vect[i]/divise;
+        }
+        return vect;
+    }
 
     public static boolean condition(double [] first, double [] second)
     {
         double [] temp = minus(second, first);
+        double acc = 0;
         for (int i = 0; i < temp.length ; i++)
         {
-            if ( Math.abs(temp[i]) > 0.00000001)
-            {
-                return true;
-            }
+            acc = acc + (temp[i]*temp[i]);
         }
-        return false;
+        acc = Math.sqrt(acc);
+        return acc > 0.00000001;
     }
 
     /**
