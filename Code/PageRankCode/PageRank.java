@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.lang.*;
 
 /**
  * Page Rank
@@ -48,23 +49,29 @@ public class PageRank
             terme_1 = multiply(vector_xT , matrice_proba_t , alpha);    //Premier terme de l'algorithme 
             terme_2 = multiply(vector_eT , facteur);    //Second terme de l'algorithme
             vector_xT = sum(terme_1 , terme_2); //Résultat
-            print_a_vector(vector_xT);
+            
         }
         vector_PR = vector_xT;
         print_a_vector(vector_PR);
+        System.out.println(sum(vector_PR));
     }
-    
+
     public static double [] convert(String to_convert)
     {
         return null;
     }
-    
-    
 
     public static boolean condition(double [] first, double [] second)
     {
         double [] temp = minus(second, first);
-        return ( temp[0] < 0.00000001 );
+        for (int i = 0; i < temp.length ; i++)
+        {
+            if ( Math.abs(temp[i]) > 0.00000001)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -269,7 +276,10 @@ public class PageRank
                 {
                     vector [runner]=1;
                 }
-                vector [runner]=0;
+                else
+                {
+                    vector [runner]=0;
+                }
             }
             else    //mode eT ( 1, 1, 1 ...)
             {

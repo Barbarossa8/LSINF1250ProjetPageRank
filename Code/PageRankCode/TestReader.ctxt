@@ -3,5 +3,5 @@ comment0.params=file
 comment0.target=double[][]\ read_file(java.lang.String)
 comment1.params=matrice\ nom_fichier
 comment1.target=void\ print_a_matrix(double[][],\ java.lang.String)
-comment1.text=\ METHOD\ PRINT_A_MATRIX\r\n\ \r\n\ -->\ Imprime\ la\ matrice\r\n\r\n\ @param\ matrice\ La\ matrice\ \u00E0\ imprimer\r\n
+comment1.text=\ METHOD\ PRINT_A_MATRIX\n\ \n\ -->\ Imprime\ la\ matrice\n\n\ @param\ matrice\ La\ matrice\ \u00E0\ imprimer\n
 numComments=2
