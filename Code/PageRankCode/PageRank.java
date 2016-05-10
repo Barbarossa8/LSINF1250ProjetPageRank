@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Page Rank
@@ -23,39 +24,49 @@ public class PageRank
     public static void main()
     {
         /* Initialisation de toutes les données nécéssaire*/
-        
-        double[][] matrice = initialisation();  //Récupère la matrice
-        double alpha = 0.85;    //coefficient de téléportation --> STDIN
+
+        String [] valeur_initial = initialisation();  //Paramètrage de la fonction
+        double [][] matrice = TestReader.read_file(valeur_initial[0]);  //Création de la matrice du graphe dirigé
+        double alpha = Double.parseDouble(valeur_initial[1]);    //coefficient de téléportation
         double [] vector_xT = create_vector(matrice.length,1);  //vecteur xT
         double [][] matrice_proba_t = transition_matrix(matrice);   //matrice de probabilité de transition
-        
+
         double nombre_page = matrice.length;    //nombre de page de la matrice
         double facteur = (1 - alpha)/nombre_page;   
         double [] vector_eT = create_vector(matrice.length,0);  //vecteur eT
-        double [] vector_vT ;
-        
+        //double [] vector_vT = convert(valeur_initial[2]);
+
         /* Implémentation de la formule */
-        
+
         double [] terme_1;  //contenir le 1er terme
         double [] terme_2;  //contenir le 2eme terme
         double [] vector_PR = create_vector(matrice.length,0);    //contenir le vecteur Page Rank
-        
-        while( condition(vector_xT, vector_PR) ) //ecrire fonction qui compare 2 vecteur (-) et regarder si 10^-8 = false else true
+
+        while( condition(vector_xT, vector_PR) ) 
         {
-            vector_PR = vector_xT;
-            terme_1 = multiply(vector_xT , matrice_proba_t , alpha);
-            terme_2 = multiply(vector_eT , facteur);
-            vector_xT = sum(terme_1 , terme_2);
+            vector_PR = vector_xT;  
+            terme_1 = multiply(vector_xT , matrice_proba_t , alpha);    //Premier terme de l'algorithme 
+            terme_2 = multiply(vector_eT , facteur);    //Second terme de l'algorithme
+            vector_xT = sum(terme_1 , terme_2); //Résultat
+            print_a_vector(vector_xT);
         }
-        
+        vector_PR = vector_xT;
+        print_a_vector(vector_PR);
     }
     
+    public static double [] convert(String to_convert)
+    {
+        return null;
+    }
+    
+    
+
     public static boolean condition(double [] first, double [] second)
     {
-        double [] temp = minus(first, second);
+        double [] temp = minus(second, first);
         return ( temp[0] < 0.00000001 );
     }
-    
+
     /**
      * METHODE MINUS
      * 
@@ -74,13 +85,26 @@ public class PageRank
         return vector_1;
     }
 
-    public static double[][] initialisation()
+    public static String [] initialisation()
     {
-        Scanner scan = new Scanner( System.in );
+        Scanner scan_1 = new Scanner( System.in );    //Nom du fichier contenant la matrice
         System.out.print("Entrez le nom du fichier contenant la matrice: ");
-        String fichier = scan.nextLine();
-        scan.close();
-        return TestReader.read_file(fichier);
+        String fichier = scan_1.nextLine();
+        scan_1.close();
+
+        Scanner scan_2 = new Scanner( System.in );    //Valeur de alpha
+        System.out.print("Entrez la valeur du coefficient alpha: ");
+        String alpha = scan_2.nextLine();
+        scan_2.close();
+
+        Scanner scan_3 = new Scanner( System.in );    //Vecteur personalisation
+        System.out.print("Entrez le vecteur de personalisation: ");
+        String vector_personalisation = scan_3.nextLine();
+        scan_3.close();
+
+        String [] valeurs_initial = { fichier , alpha , vector_personalisation };
+
+        return valeurs_initial;
     }
 
     //METHODES AVANCEE SUR MATRICES
