@@ -11,14 +11,6 @@ import java.lang.*;
  */
 public class PageRank
 {
-
-    /**
-     * Alors les fonctions que l'on doit utiliser pour l'algorithme PageRank de la slide 135 sont implémentée
-     * Il reste plus qu'à faire:
-     *                              - la fonction principale càd retranscrire l'algo en code (en cours)
-     *                              - ecrire la main qui lira des fichiers et appellera la fonction de calcul  V                   
-     */
-
     /**
      * Main utilisé pour des tests
      */
@@ -27,16 +19,15 @@ public class PageRank
         /* Initialisation de toutes les données nécéssaire*/
 
         String [] valeur_initial = initialisation();  //Paramètrage de la fonction
-        double [][] matrice = TestReader.read_file(valeur_initial[0]);  //Création de la matrice du graphe dirigé
+        double [][] matrice = TestReader.read_matrix(valeur_initial[0]);  //Création de la matrice du graphe dirigé
         double alpha = Double.parseDouble(valeur_initial[1]);    //coefficient de téléportation
         double [] vector_xT = create_vector(matrice.length,1);  //vecteur xT
         double [][] matrice_proba_t = transition_matrix(matrice);   //matrice de probabilité de transition
 
         double nombre_page = matrice.length;    //nombre de page de la matrice
         double facteur = (1 - alpha);   
-        double [] vector_qT = {0.3,0,0.2,0,0.2,0,0.2,0.1,0,0,0};//create_vector(matrice.length,0);  //vecteur qT
-        //double [] vector_vT = convert(valeur_initial[2]);
-
+        double [] vector_qT = TestReader.read_vector(valeur_initial[2]);//{0.3,0,0.2,0,0.2,0,0.2,0.1,0,0,0};  //vecteur qT
+       
         /* Implémentation de la formule */
 
         double [] terme_1;  //contenir le 1er terme
@@ -54,14 +45,10 @@ public class PageRank
             count++;
         }
         vector_PR = vector_xT;
+        System.out.println("\nLe vecteur PageRank est : \n");
         print_a_vector(vector_PR);
-        System.out.println(sum(vector_PR));
-        System.out.println(count);
-    }
-
-    public static double [] convert(String to_convert)
-    {
-        return null;
+        System.out.println("\nLa somme des probabilité du vecteur PageRank est de "+sum(vector_PR));
+        System.out.println("\nLe nombre d'itération est de "+count);
     }
     
     public static double [] norme (double [] vect, double divise)
@@ -152,7 +139,7 @@ public class PageRank
      */
     public static double [] sum(double [] vector_1, double [] vector_2)
     {
-        for( int runner=0 ; runner< vector_1.length;runner++)
+        for( int runner=0 ; runner < vector_1.length;runner++)
         {
             vector_1[runner] += vector_2[runner];
         }
@@ -276,6 +263,7 @@ public class PageRank
     }
 
     //METHODES DIVERSE
+    
     public static double [] create_vector(int longueur, int mode)
     {        
         double [] vector = new double [longueur];
@@ -299,7 +287,8 @@ public class PageRank
         }
         return vector;
     }
-
+    
+    
     public static double sum(double[] vector)
     {
         double sum=0;

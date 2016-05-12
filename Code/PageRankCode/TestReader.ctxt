@@ -1,7 +1,6 @@
 #BlueJ class context
 comment0.params=file
-comment0.target=double[][]\ read_file(java.lang.String)
-comment1.params=matrice\ nom_fichier
-comment1.target=void\ print_a_matrix(double[][],\ java.lang.String)
-comment1.text=\ METHOD\ PRINT_A_MATRIX\n\ \n\ -->\ Imprime\ la\ matrice\n\n\ @param\ matrice\ La\ matrice\ \u00E0\ imprimer\n
+comment0.target=double[][]\ read_matrix(java.lang.String)
+comment1.params=file
+comment1.target=double[]\ read_vector(java.lang.String)
 numComments=2
