@@ -44,7 +44,15 @@
     \item Exécutez le fichier PageRank.jar en console à l'aide de la commande : java -jar PageRank.jar  
 \end{itemize}
 \\
-Des manuels d'utilisations sont présents dans l'archive afin de cerner les méthodes d'exécutions que l'on propose.
+Des manuels d'utilisations sont présents dans l'archive afin de cerner les méthodes d'exécutions que l'on propose.\\ A titre de rappel pour notre programme:
+\begin{itemize}
+    \item Input : Une matrice d’adjacence A d’un graphe dirigé, pondéré et régulier G ainsi
+qu’un paramètre de téléportation $\alpha$ entre 0 et 1 (inutile de le vérifier) et enfin un vecteur
+de personnalisation q.
+    \item Output : Un vecteur x contenant les scores d’importance des noeuds ordonnés dans
+le même ordre que la matrice d’adjacence.
+\end{itemize}
+
 
 \section{Algorithme utilisé}
 
@@ -88,7 +96,7 @@ Des manuels d'utilisations sont présents dans l'archive afin de cerner les métho
 
 %Méthode mathématique ou numérique pour déterminer les scores (avec la formule mathématique)
 
-\paragraph{}La formule mathématique que nous avons décidé d'utiliser est celle de la Power method comme présenté à la section "Algorithme utilisé". Pour cela, nous faisons appel à plusieurs méthode que nous avons implémentées nous même et qui sont aussi expliquée plus haut dans ce document.% itérations: condition etc
+\paragraph{}La formule mathématique que nous avons décidé d'utiliser est celle de la Power method comme présenté à la section "Algorithme utilisé". Pour cela, nous faisons appel à plusieurs méthodes que nous avons implémentées nous même et qui sont aussi expliquée plus haut dans ce document.% itérations: condition etc
 
 \section{Annexe}
 
