@@ -1,0 +1,8 @@
+Pour exécuter le fichier PageRank.jar veuillez:
+
+	-> allez avec le terminal dans le répertoire le contenant
+	-> tappez la commande: 
+				 java -jar PageRank.jar
+	-> suivez les instructions à l'écran
+
+NB: tout les fichiers nécessaires doivent se trouver dans le même répertoire que l'éxécutable

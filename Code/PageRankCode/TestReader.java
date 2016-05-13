@@ -39,12 +39,10 @@ public class TestReader
         catch (FileNotFoundException exception) //Gestion de l'erreur du au fait de ne pas trouver le fichier 
         {
             System.err.println("Le fichier " + file +" n'a pas été trouvé :" + exception.getMessage());
-            PageRank.initialisation();  //retour à la demande du nom de fichier
         }
         catch (IOException exception)   //Gestion de l'erreur du à la lecture du fichier
         {
             System.err.println ("Erreur lors de la lecture : " + exception.getMessage());
-            PageRank.initialisation(); //retour à la demande du nom de fichier
         }
         finally //Exécuté dans tout les cas
         {
@@ -52,7 +50,7 @@ public class TestReader
             {
                 fichier.close();    //Fermeture du flux de fichier
             }
-            catch(IOException exception)    //Gestion de l'erreur du à la fermeture du flux de fichier
+            catch(Exception exception)    //Gestion de l'erreur du à la fermeture du flux de fichier
             {
                 System.err.println ("Erreur lors de la fermeture du flux de fichier : " + exception.getMessage());
             }
@@ -104,12 +102,10 @@ public class TestReader
         catch (FileNotFoundException exception) //Gestion de l'erreur du au fait de ne pas trouver le fichier 
         {
             System.err.println("Le fichier " + file +" n'a pas été trouvé :" + exception.getMessage());
-            PageRank.initialisation();  //retour à la demande du nom de fichier
         }
         catch (IOException exception)   //Gestion de l'erreur du à la lecture du fichier
         {
             System.err.println ("Erreur lors de la lecture : " + exception.getMessage());
-            PageRank.initialisation(); //retour à la demande du nom de fichier
         }
         finally //Exécuté dans tout les cas
         {

@@ -1,0 +1,21 @@
+﻿**************************************************************************************************************
+PROJECT TITLE: LSINF1250 - Page Rank
+PURPOSE OF PROJECT: Implement the PageRank agorithm with the power method
+PROFESSOR:Mr Marco Saerens
+
+VERSION or DATE: April 2016
+AUTHORS: Antoine & Antonio
+
+USER INSTRUCTIONS: 
+    -> exécutez la main 
+    -> suivez les instructions à l'écran en entrant:
+        -> le nom du fichier contenant la matrice (dans le même dossier que l'éxécutable)
+        -> la constante alpha
+        -> le nom du fichier contenant le vecteur de personalisation (dans le même dossier que l'éxécutable)
+        (ce vecteur est composé de nombres à virgules représentés par des points et séparés par des virgules)
+    -> les résultats s'affichent sur le terminal 
+FILES:
+    -> PageRank.java : fichier contenant la main et toutes les fonctions de calcul
+    -> TestReader : fichier contenant les methodes liées aux lectures et traitements de fichiers
+**************************************************************************************************************
+ 

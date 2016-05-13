@@ -14,7 +14,7 @@ public class PageRank
     /**
      * Main utilisé pour des tests
      */
-    public static void main()
+    public static void main(String []args)
     {
         /* Initialisation de toutes les données nécéssaire*/
 
@@ -115,17 +115,17 @@ public class PageRank
         Scanner scan_1 = new Scanner( System.in );    //Nom du fichier contenant la matrice
         System.out.print("Entrez le nom du fichier contenant la matrice: ");
         String fichier = scan_1.nextLine();
-        scan_1.close();
+        
 
-        Scanner scan_3 = new Scanner( System.in );    //Vecteur personalisation
+       //Vecteur personalisation
         System.out.print("Entrez le nom du fichier contenant le vecteur de personalisation: ");
-        String vector_personalisation = scan_3.nextLine();
-        scan_3.close();
+        String vector_personalisation = scan_1.nextLine();
+        
 
-        Scanner scan_2 = new Scanner( System.in );    //Valeur de alpha
+        //Valeur de alpha
         System.out.print("Entrez la valeur du coefficient alpha: ");
-        String alpha = scan_2.nextLine();
-        scan_2.close();
+        String alpha = scan_1.nextLine();
+        scan_1.close();
 
 
         String [] valeurs_initial = { fichier , alpha , vector_personalisation };   //Stockage des informations
