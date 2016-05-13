@@ -12,8 +12,15 @@ import java.util.ArrayList;
  */
 public class TestReader
 {
-    public static int length=11;
+    public static int length;
 
+    /**
+     * METHOD READ_MATRIX
+     * 
+     * --> Lis le fichier et crée la matrice
+     *
+     * @param file fichier contenant la matrice
+     */
     public static double [][] read_matrix(String file )
     {
         ArrayList <String[]> list = new ArrayList<String[]>(); //Liste dynamique qui contiendra les elements de la matrices
@@ -72,6 +79,13 @@ public class TestReader
         return matrice;
     }
 
+    /**
+     * METHOD READ_VECTOR
+     * 
+     * --> Lis le fichier et crée le vecteur
+     *
+     * @param file fichier contenant le vecteur
+     */
     public static double [] read_vector(String file )
     {
         String temp [] =new String [length];
@@ -108,7 +122,7 @@ public class TestReader
                 System.err.println ("Erreur lors de la fermeture du flux de fichier : " + exception.getMessage());
             }
         }
-        
+
         double vector [] = new double[temp.length];
 
         for (int runner_1 = 0 ; runner_1 < length ; runner_1++) 

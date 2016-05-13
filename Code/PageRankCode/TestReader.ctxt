@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=file
 comment0.target=double[][]\ read_matrix(java.lang.String)
+comment0.text=\r\n\ METHOD\ READ_MATRIX\r\n\ \r\n\ -->\ Lis\ le\ fichier\ et\ cr\u00E9e\ la\ matrice\r\n\r\n\ @param\ file\ fichier\ contenant\ la\ matrice\r\n
 comment1.params=file
 comment1.target=double[]\ read_vector(java.lang.String)
+comment1.text=\r\n\ METHOD\ READ_VECTOR\r\n\ \r\n\ -->\ Lis\ le\ fichier\ et\ cr\u00E9e\ le\ vecteur\r\n\r\n\ @param\ file\ fichier\ contenant\ le\ vecteur\r\n
 numComments=2

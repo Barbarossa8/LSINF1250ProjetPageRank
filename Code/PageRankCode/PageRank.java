@@ -27,7 +27,7 @@ public class PageRank
         double nombre_page = matrice.length;    //nombre de page de la matrice
         double facteur = (1 - alpha);   
         double [] vector_qT = TestReader.read_vector(valeur_initial[2]);//{0.3,0,0.2,0,0.2,0,0.2,0.1,0,0,0};  //vecteur qT
-       
+
         /* Implémentation de la formule */
 
         double [] terme_1;  //contenir le 1er terme
@@ -50,7 +50,17 @@ public class PageRank
         System.out.println("\nLa somme des probabilité du vecteur PageRank est de "+sum(vector_PR));
         System.out.println("\nLe nombre d'itération est de "+count);
     }
-    
+
+    /**
+     * METHOD NORME
+     * 
+     * --> Calcule la norme du vecteur
+     *
+     * @param vect le vecteur
+     * @param divise la somme des éléments du vecteur
+     * 
+     * @return retourne la norme du vecteur
+     */
     public static double [] norme (double [] vect, double divise)
     {
         for (int i = 0; i < vect.length ; i++)
@@ -60,6 +70,16 @@ public class PageRank
         return vect;
     }
 
+    /**
+     * METHOD CONDITION
+     * 
+     * --> Nous informe si nous avons passé la condition de 10^-8 pour la différence entre les deux vecteurs page rank
+     *
+     * @param first le nouveau vecteur
+     * @param second l'ancien vecteur
+     * 
+     * @return true si pas passée et false si oui
+     */
     public static boolean condition(double [] first, double [] second)
     {
         double [] temp = minus(second, first);
@@ -97,17 +117,18 @@ public class PageRank
         String fichier = scan_1.nextLine();
         scan_1.close();
 
+        Scanner scan_3 = new Scanner( System.in );    //Vecteur personalisation
+        System.out.print("Entrez le nom du fichier contenant le vecteur de personalisation: ");
+        String vector_personalisation = scan_3.nextLine();
+        scan_3.close();
+
         Scanner scan_2 = new Scanner( System.in );    //Valeur de alpha
         System.out.print("Entrez la valeur du coefficient alpha: ");
         String alpha = scan_2.nextLine();
         scan_2.close();
 
-        Scanner scan_3 = new Scanner( System.in );    //Vecteur personalisation
-        System.out.print("Entrez le vecteur de personalisation: ");
-        String vector_personalisation = scan_3.nextLine();
-        scan_3.close();
 
-        String [] valeurs_initial = { fichier , alpha , vector_personalisation };
+        String [] valeurs_initial = { fichier , alpha , vector_personalisation };   //Stockage des informations
 
         return valeurs_initial;
     }
@@ -123,7 +144,7 @@ public class PageRank
      */
     public static double [][] transition_matrix(double [][] matrice)
     {
-        return divise(matrice,degre(matrice));
+        return divise(matrice,degre(matrice)); //on divise chaque ligne de la matrice par son degré
     }
 
     //METHODES DE BASES POUR LES MATRICES
@@ -203,7 +224,7 @@ public class PageRank
      * @param matrice La matrice de probabilité de transition
      * @param alpha Le coefficient alpha
      * 
-     * @return Le produit des deux matrices NxN sous forme de matrice NxN
+     * @return Le produit du vecteur, de la matrice et du coefficient alpha
      */
     public static double[] multiply(double[] vector, double[][] matrice, double alpha) 
     {   
@@ -227,7 +248,7 @@ public class PageRank
      *
      * --> Multiplie un vecteur avec un facteur
      *
-     * @return Le produit ...
+     * @return Le produit du vecteur et du facteur
      */
     public static double[] multiply(double[] vector, double facteur) 
     {   
@@ -263,13 +284,23 @@ public class PageRank
     }
 
     //METHODES DIVERSE
-    
+
+    /**
+     * METHOD CREATE_VECTOR
+     * 
+     * --> Crée un vecteur soit initialisé à 1 (1,1,...,1), ou soit avec un 1 et que des 0 (1,0,...,0)
+     *
+     * @param longueur la longueur du vecteur à creer 
+     * @param mode  détermine le mode que l'on veut utilisé
+     * 
+     * @post retourne le vecteur de taille longueur et initialisé selon le mode
+     */
     public static double [] create_vector(int longueur, int mode)
     {        
         double [] vector = new double [longueur];
         for( int runner=0 ; runner < longueur ; runner++ )
         {
-            if( mode == 1 ) //mode xT (1, 0, 0, ...)
+            if( mode == 1 ) //mode (1, 0, 0, ...)
             {
                 if(runner == 0)
                 {
@@ -280,15 +311,22 @@ public class PageRank
                     vector [runner]=0;
                 }
             }
-            else    //mode eT ( 1, 1, 1 ...)
+            else    //mode ( 1, 1, 1 ...)
             {
                 vector [runner] = 1;
             }
         }
         return vector;
     }
-    
-    
+
+    /**
+     * METHOD SUM
+     * 
+     * --> Calcule la somme des éléments du vecteurs
+     *
+     * @param vector    Le vecteur à sommer
+     * @post retourne la somme des éléments du vecteur
+     */
     public static double sum(double[] vector)
     {
         double sum=0;
