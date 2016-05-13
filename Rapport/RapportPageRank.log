@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2015.11.26)  9 MAY 2016 21:20
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2015.11.26)  13 MAY 2016 16:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -490,14 +490,42 @@ LaTeX Info: Redefining \up on input line 20.
 
 ]
 File: PowerMethod.png Graphic file (type QTm)
- <use  "PowerMethod.png" > [2] (./RapportPageRank.aux) ) 
+ <use  "PowerMethod.png" >
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 49.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 49.
+
+(/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 49.
+
+
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 49.
+
+
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 49.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 49.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 49.
+ [2] [3] (./RapportPageRank.aux) ) 
 Here is how much of TeX's memory you used:
- 14333 strings out of 493706
- 295464 string characters out of 6147747
- 325399 words of memory out of 5000000
- 17623 multiletter control sequences out of 15000+600000
- 4499 words of font info for 27 fonts, out of 8000000 for 9000
+ 14401 strings out of 493706
+ 296975 string characters out of 6147747
+ 326399 words of memory out of 5000000
+ 17669 multiletter control sequences out of 15000+600000
+ 15509 words of font info for 37 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  36i,5n,39p,10366b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on RapportPageRank.pdf (2 pages).
+Output written on RapportPageRank.pdf (3 pages).

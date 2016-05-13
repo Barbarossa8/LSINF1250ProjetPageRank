@@ -40,10 +40,17 @@
 %Explication de la procédure JAVA
 \section{Algorithme utilisé}
 
-\paragraph{}La méthode que nous avons choisi est l'algorithme PageRank utilisant la PowerMethod comme présenté au cours (cf. Chapitre 10): METS CE QUE chaque termes signifient avec ce qu'on a noté dans ton bloc non ???
+\paragraph{}La méthode que nous avons choisi est l'algorithme PageRank utilisant la PowerMethod comme présenté au cours (cf. Chapitre 10):
 \begin{center}
 \includegraphics[scale=0.4]{PowerMethod.png} 
 \end{center}
+\vspace{1cm}
+\begin{itemize}
+	\item $\alpha$ : Le coefficient de téléportation
+	\item $x^{T}$	: e vecteur Page Rank de l'itération précédente
+	\item $P$	: La matrice de probabilité de transition
+	\item $q^{T}$ : Le vecteur de personnalisation
+\end{itemize}
 
 %Explication de l'algorithme
 
@@ -61,14 +68,19 @@
     \item[•] matrix\_x\_vector : Sers à calculer le vecteur résultant du produit entre une matrice NxN et un vecteur de type Nx1.
     \item[•] degree : Sers à calculer et stocker le degré dans un vecteur de chaque ligne d'une matrice NxN.
     \item[•] multiply (attention à la signature) : Peut servir soit à multiplier un vecteur avec une matrice et un facteur alpha, soit multiplier un vecteur avec un facteur ou bien multiplier deux matrices.
-    \item[•] ...
+    \item[•] norm : calcule la norme d'un vecteur
+    \item[•] minus : calcule la différence entre deux vecteurs
+    \item[•] divise: calcule le quotient entre une matrice et un vecteur
+    \item[•] transpose : établit la transposée de la matrice passée en paramètre
+    \item[•] transition\_matrix : comme son nom l'indique cette méthode sers à calculer la matrice de transition de la matrice passée en paramètre
+    \item[•] create a vecor : crée un vecteur selon deux mode spécifique ( le vecteur initialisé avec des 1 et celui initialisé à 0 dont sa première composante est initialisé à 1)
 \end{itemize}
 
 \section{Méthode pour déterminer les scores}
 
 %Méthode mathématique ou numérique pour déterminer les scores (avec la formule mathématique)
 
-\paragraph{}La formule mathématique que nous avons décidé d'utiliser est celle de la Power method comme présenté à la section "Algorithme utilisé". Pour cela, nous faisons appel à plusieurs méthode que nous avons implémentées nous même et qui sont aussi expliquée plus haut dans ce document.
+\paragraph{}La formule mathématique que nous avons décidé d'utiliser est celle de la Power method comme présenté à la section "Algorithme utilisé". Pour cela, nous faisons appel à plusieurs méthode que nous avons implémentées nous même et qui sont aussi expliquée plus haut dans ce document.% itérations: condition etc
 
 \section{Annexe}
 
