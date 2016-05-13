@@ -24,7 +24,7 @@
 	\begin{flushright}\sf\Huge
 	{\bfseries LSINF1250} \\[2mm]
 	{\bfseries Projet PageRank} \\[1pt]
-	{\huge Ranking de rÃ©seaux sociaux et page web}
+	{\huge Ranking de réseaux sociaux et page web}
 	\end{flushright}
 	\ \\[8cm]
 	\textbf{Groupe 8} \\
@@ -36,61 +36,71 @@
 
 \newpage
 
-\section{ProcÃ©dure Java}
-%Explication de la procÃ©dure JAVA
-\section{Algorithme utilisÃ©}
+\section{Procédure Java}
+%Explication de la procédure JAVA
+\paragraph{}Dans le code remis, un fichier .jar est présent. Il est l'exécutable de notre code. Néanmoins, deux options sont possibles pour exécuter notre implémentation de l'algorithme Page Rank:
+\begin{itemize}
+    \item Exécutez la main du fichier PageRank.java et suivez les instructions
+    \item Exécutez le fichier PageRank.jar en console à l'aide de la commande : java -jar PageRank.jar  
+\end{itemize}
+\\
+Des manuels d'utilisations sont présents dans l'archive afin de cerner les méthodes d'exécutions que l'on propose.
 
-\paragraph{}La mÃ©thode que nous avons choisi est l'algorithme PageRank utilisant la PowerMethod comme prÃ©sentÃ© au cours (cf. Chapitre 10):
+\section{Algorithme utilisé}
+
+\paragraph{}La méthode que nous avons choisi est l'algorithme PageRank utilisant la PowerMethod comme présenté au cours (cf. Chapitre 10):
 \begin{center}
 \includegraphics[scale=0.4]{PowerMethod.png} 
 \end{center}
 \vspace{1cm}
 \begin{itemize}
-	\item $\alpha$ : Le coefficient de tÃ©lÃ©portation
-	\item $x^{T}$	: e vecteur Page Rank de l'itÃ©ration prÃ©cÃ©dente
-	\item $P$	: La matrice de probabilitÃ© de transition
+	\item $\alpha$ : Le coefficient de téléportation
+	\item $x^{T}$	: e vecteur Page Rank de l'itération précédente
+	\item $P$	: La matrice de probabilité de transition
 	\item $q^{T}$ : Le vecteur de personnalisation
 \end{itemize}
 
 %Explication de l'algorithme
 
-\paragraph{}Cette mÃ©thode nous a semblÃ© Ãªtre la plus intuitive et la plus directe pour rÃ©aliser cette problÃ©matique.
+\paragraph{}Cette méthode nous a semblé être la plus intuitive et la plus directe pour réaliser cette problématique.
 
 \section{Librairie de calcul matriciel}
 
-\paragraph{}MÃªme que vivement conseillÃ©, nous avons pris la dÃ©cision de ne pas utiliser de librairie spÃ©cifique aux calculs matriciel tel que \textit{JAMA}, mais d'implÃ©menter les diffÃ©rentes fonctions par nous mÃªme. Ce choix s'est fait dans une optique de rÃ©-adaptation au langage \textit{JAVA} et de ses rÃ¨gles basiques.
+\paragraph{}Même que vivement conseillé, nous avons pris la décision de ne pas utiliser de librairie spécifique aux calculs matriciel tel que \textit{JAMA}, mais d'implémenter les différentes fonctions par nous même. Ce choix s'est fait dans une optique de ré-adaptation au langage \textit{JAVA} et de ses règles basiques.
 
-\paragraph{}Pour arriver Ã  reproduire l'algorithme PageRank nous avons dÃ» implÃ©menter les fonctions suivantes:
+\paragraph{}Pour arriver à reproduire l'algorithme PageRank nous avons dû implémenter les fonctions suivantes:
 
 \hspace{1.5cm}
 
 \begin{itemize}
-    \item[â€¢] matrix\_x\_vector : Sers Ã  calculer le vecteur rÃ©sultant du produit entre une matrice NxN et un vecteur de type Nx1.
-    \item[â€¢] degree : Sers Ã  calculer et stocker le degrÃ© dans un vecteur de chaque ligne d'une matrice NxN.
-    \item[â€¢] multiply (attention Ã  la signature) : Peut servir soit Ã  multiplier un vecteur avec une matrice et un facteur alpha, soit multiplier un vecteur avec un facteur ou bien multiplier deux matrices.
-    \item[â€¢] norm : calcule la norme d'un vecteur
-    \item[â€¢] minus : calcule la diffÃ©rence entre deux vecteurs
-    \item[â€¢] divise: calcule le quotient entre une matrice et un vecteur
-    \item[â€¢] transpose : Ã©tablit la transposÃ©e de la matrice passÃ©e en paramÃ¨tre
-    \item[â€¢] transition\_matrix : comme son nom l'indique cette mÃ©thode sers Ã  calculer la matrice de transition de la matrice passÃ©e en paramÃ¨tre
-    \item[â€¢] create a vecor : crÃ©e un vecteur selon deux mode spÃ©cifique ( le vecteur initialisÃ© avec des 1 et celui initialisÃ© Ã  0 dont sa premiÃ¨re composante est initialisÃ© Ã  1)
+    \item[•] matrix\_x\_vector : Sers à calculer le vecteur résultant du produit entre une matrice NxN et un vecteur de type Nx1.
+    \item[•] degree : Sers à calculer et stocker le degré dans un vecteur de chaque ligne d'une matrice NxN.
+    \item[•] multiply (attention à la signature) : Peut servir soit à multiplier un vecteur avec une matrice et un facteur alpha, soit multiplier un vecteur avec un facteur ou bien multiplier deux matrices.
+    \item[•] norm : calcule la norme d'un vecteur
+    \item[•] minus : calcule la différence entre deux vecteurs
+    \item[•] divise: calcule le quotient entre une matrice et un vecteur
+    \item[•] transpose : établit la transposée de la matrice passée en paramètre
+    \item[•] transition\_matrix : comme son nom l'indique cette méthode sers à calculer la matrice de transition de la matrice passée en paramètre
+    \item[•] create a vecor : crée un vecteur selon deux mode spécifique ( le vecteur initialisé avec des 1 et celui initialisé à 0 dont sa première composante est initialisé à 1)
 \end{itemize}
 
-\section{MÃ©thode pour dÃ©terminer les scores}
+\section{Méthode pour déterminer les scores}
 
-%MÃ©thode mathÃ©matique ou numÃ©rique pour dÃ©terminer les scores (avec la formule mathÃ©matique)
+%Méthode mathématique ou numérique pour déterminer les scores (avec la formule mathématique)
 
-\paragraph{}La formule mathÃ©matique que nous avons dÃ©cidÃ© d'utiliser est celle de la Power method comme prÃ©sentÃ© Ã  la section "Algorithme utilisÃ©". Pour cela, nous faisons appel Ã  plusieurs mÃ©thode que nous avons implÃ©mentÃ©es nous mÃªme et qui sont aussi expliquÃ©e plus haut dans ce document.% itÃ©rations: condition etc
+\paragraph{}La formule mathématique que nous avons décidé d'utiliser est celle de la Power method comme présenté à la section "Algorithme utilisé". Pour cela, nous faisons appel à plusieurs méthode que nous avons implémentées nous même et qui sont aussi expliquée plus haut dans ce document.% itérations: condition etc
 
 \section{Annexe}
 
 \subsection{Scores PageRank}
 
-%Sans tÃ©lÃ©portation et avec alpha=1 pour les deux graphes tests
+%Sans téléportation et avec alpha=1 pour les deux graphes tests
 
 \subsection{Code complet}
 
 %Bien le commenter
+
+
 
 
 
