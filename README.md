@@ -1,2 +1,9 @@
-# LSIN1250ProjetPageRank
-Projet de LSINF1250 implémenter PageRank en binôme Antonio et Antoine
+# Project PageRank LSIN1250
+
+## Synopsis
+
+Project for the course LSINF1250 : implement the algorithm PageRank by Antonio Decarvalho and Antoine Denauw.
+
+## License
+
+University of Louvain-La-Neuve EPL LSINF1250
